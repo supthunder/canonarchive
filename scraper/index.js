@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 import { LinkExtractor } from './extract-links.js';
 import { BatchScraper } from './scrape-batch.js';
+import { CanonSmartParser } from './smart-parser.js';
 
 class CanonScraper {
   constructor() {
     this.linkExtractor = new LinkExtractor();
     this.batchScraper = new BatchScraper();
+    this.smartParser = new CanonSmartParser();
   }
 
   async showHelp() {
@@ -22,6 +24,7 @@ COMMANDS:
   scrape-category Scrape specific category
   resume          Resume interrupted scraping
   stats           Show scraping statistics
+  smart-parse     Generate intelligent, searchable JSON from scraped data
   help            Show this help message
 
 OPTIONS:
@@ -36,6 +39,7 @@ EXAMPLES:
   node index.js scrape-category --categories dcc,dslr
   node index.js resume
   node index.js stats
+  node index.js smart-parse
 
 CATEGORY CODES:
   dslr    - DSLR Cameras
@@ -135,6 +139,19 @@ CATEGORY CODES:
       process.exit(1);
     }
   }
+
+  async smartParse() {
+    console.log('🧠 Starting intelligent Canon product parsing...\n');
+    try {
+      const result = await this.smartParser.parseProducts();
+      console.log('\n✅ Smart parsing completed!');
+      console.log('🎯 Now you can search by megapixels, sensor types, and more!');
+      return result;
+    } catch (error) {
+      console.error('❌ Smart parsing failed:', error);
+      process.exit(1);
+    }
+  }
 }
 
 // CLI Interface
@@ -194,6 +211,10 @@ async function main() {
         
       case 'stats':
         await scraper.showStats();
+        break;
+
+      case 'smart-parse':
+        await scraper.smartParse();
         break;
         
       default:
