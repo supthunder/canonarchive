@@ -1,0 +1,21 @@
+{
+  "name": "canon-scraper",
+  "version": "1.0.0",
+  "description": "Standalone Canon Museum product scraper",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "extract-links": "node extract-links.js",
+    "scrape-batch": "node scrape-batch.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "axios": "^1.6.0",
+    "fs-extra": "^11.2.0",
+    "p-limit": "^4.0.0",
+    "cli-progress": "^3.12.0"
+  },
+  "author": "",
+  "license": "MIT"
+} 
