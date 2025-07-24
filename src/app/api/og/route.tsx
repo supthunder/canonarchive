@@ -150,7 +150,12 @@ export async function GET(request: Request) {
 
     // Search results OG image
     const searchText = search ? `"${search}"` : 'All Cameras';
-    const count = parseInt(resultCount);
+    let count = parseInt(resultCount);
+    
+    // If no search results or showing all cameras, display total database count
+    if (count === 0 && !search) {
+      count = 908; // Total cameras in database
+    }
     
     return new ImageResponse(
       (
@@ -245,7 +250,7 @@ export async function GET(request: Request) {
                 fontWeight: 'bold',
               }}
             >
-              {count > 0 ? '🎯' : '😔'} {count} camera{count !== 1 ? 's' : ''} found
+              {count > 0 ? '🎯' : '😔'} {count} camera{count !== 1 ? 's' : ''} {search ? 'found' : 'available'}
             </div>
 
             {/* Success indicators */}
