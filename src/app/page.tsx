@@ -106,7 +106,7 @@ export default function CanonArchive() {
             </span>
           </h1>
           <p className="text-xl text-gray-600 mb-8">
-            Intelligent Camera Discovery Platform
+            Canon Camera Archive
           </p>
 
           {/* Statistics */}

@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Canon Archive - Intelligent Camera Discovery",
+  title: "Canon Archive - Canon Camera Archive",
   description: "Discover 908+ Canon cameras with intelligent search and filtering. Find cameras by megapixels, sensor type, era, and more features.",
   keywords: ["Canon", "cameras", "photography", "vintage cameras", "camera specs", "megapixels", "sensor", "CCD", "CMOS"],
   authors: [{ name: "Canon Archive" }],
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   
   // Open Graph metadata
   openGraph: {
-    title: "Canon Archive - Intelligent Camera Discovery",
+    title: "Canon Archive - Canon Camera Archive",
     description: "Discover 908+ Canon cameras with intelligent search and filtering. Find cameras by megapixels, sensor type, era, and more features.",
     url: "https://canonarchive.vercel.app",
     siteName: "Canon Archive",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
         url: "/api/og",
         width: 1200,
         height: 630,
-        alt: "Canon Archive - Intelligent Camera Discovery",
+        alt: "Canon Archive - Canon Camera Archive",
         type: "image/png",
       },
     ],
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   // Twitter Card metadata
   twitter: {
     card: "summary_large_image",
-    title: "Canon Archive - Intelligent Camera Discovery",
+    title: "Canon Archive - Canon Camera Archive",
     description: "Discover 908+ Canon cameras with intelligent search and filtering.",
     images: ["/api/og"],
     creator: "@canonarchive",
@@ -134,7 +134,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebApplication",
               "name": "Canon Archive",
-              "description": "Intelligent camera discovery platform for Canon cameras",
+              "description": "Canon camera archive platform for Canon cameras",
               "url": "https://canonarchive.vercel.app",
               "applicationCategory": "Photography",
               "operatingSystem": "Any",

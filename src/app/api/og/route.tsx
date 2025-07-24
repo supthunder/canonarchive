@@ -14,7 +14,7 @@ export async function GET(request: Request) {
     
     // Default branding (for future use)
     // const title = 'Canon Archive';
-    // const subtitle = 'Intelligent Camera Discovery';
+    // const subtitle = 'Canon Camera Archive';
 
     if (type === 'camera' && cameraId) {
       // Single camera OG image (simplified for Edge runtime)
@@ -196,7 +196,7 @@ export async function GET(request: Request) {
                 color: '#6b7280',
               }}
             >
-              Intelligent Camera Discovery
+              Canon Camera Archive
             </div>
           </div>
 
