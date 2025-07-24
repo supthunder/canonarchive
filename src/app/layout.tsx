@@ -100,8 +100,18 @@ export default function RootLayout({
       <head>
         {/* Additional meta tags for better SEO */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        
+        {/* Comprehensive Favicon Setup - Beautiful Camera Icon */}
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
+        <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+        <link rel="android-chrome" href="/android-chrome-192x192.png" sizes="192x192" />
+        <link rel="android-chrome" href="/android-chrome-512x512.png" sizes="512x512" />
+        
+        {/* PWA Manifest */}
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#3b82f6" />
         <meta name="format-detection" content="telephone=no" />
         
         {/* Preload critical fonts */}
