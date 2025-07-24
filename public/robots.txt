@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Allow OG image generation endpoint for social media previews
+Allow: /api/og/
+
+# Allow other important API endpoints
+Allow: /api/smart-search/
+
+# Standard sitemap location
+Sitemap: https://canonarchive.vercel.app/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1 
