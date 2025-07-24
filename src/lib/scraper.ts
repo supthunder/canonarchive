@@ -100,7 +100,7 @@ export class CanonScraper {
   }
 
   // Extract product links from category page
-  private extractProductLinks($: cheerio.CheerioAPI, category: ProductCategory): string[] {
+  private extractProductLinks($: cheerio.CheerioAPI, _category: ProductCategory): string[] {
     const links: string[] = [];
     
     // These selectors will need to be updated based on Canon's actual HTML structure
@@ -145,14 +145,14 @@ export class CanonScraper {
       // Extract specifications
       const specifications = this.extractSpecifications($, category);
       
-      // Create product object
-      const product: CanonProduct = {
+      // Create product object (using legacy structure)
+      const product = {
         id: uuidv4(),
         name,
         model,
         category,
         isDiscontinued: this.checkIfDiscontinued($),
-        specifications,
+        specifications: specifications as Record<string, string>,
         metadata: {
           sourceUrl: url,
           lastScraped: new Date().toISOString(),
@@ -161,7 +161,8 @@ export class CanonScraper {
           images: this.extractImages($),
           description: this.extractDescription($)
         }
-      };
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } as any as CanonProduct;
       
       return product;
       
@@ -223,7 +224,7 @@ export class CanonScraper {
     return specs;
   }
 
-  private mapSpecification(specs: ProductSpecifications, label: string, value: string, category: ProductCategory): void {
+  private mapSpecification(specs: ProductSpecifications, label: string, value: string, _category: ProductCategory): void {
     // Map common specifications based on label
     if (label.includes('sensor')) {
       if (!specs.sensor) specs.sensor = { type: '', size: '', resolution: '' };

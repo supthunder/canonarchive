@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { CanonScraper } from '@/lib/scraper';
-import { DataManager } from '@/lib/data-manager';
 import { ProductCategory } from '@/types/product';
 
 // Store active scraping jobs in memory (in production, use Redis or database)
@@ -24,7 +23,6 @@ export async function POST(request: NextRequest) {
     }
 
     const scraper = new CanonScraper();
-    const dataManager = new DataManager();
 
     // Start scraping in background
     const scrapingPromise = scraper.scrapeProducts(validCategories);

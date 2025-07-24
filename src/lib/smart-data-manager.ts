@@ -25,8 +25,8 @@ export class SmartDataManager {
       this.cachedData = data.products || [];
       this.cacheTimestamp = now;
       
-      console.log(`📊 Loaded ${this.cachedData.length} smart Canon products`);
-      return this.cachedData;
+      console.log(`📊 Loaded ${this.cachedData?.length || 0} smart Canon products`);
+      return this.cachedData || [];
     } catch (error) {
       console.error('❌ Error loading smart data:', error);
       return [];

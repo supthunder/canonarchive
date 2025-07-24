@@ -105,7 +105,7 @@ export async function GET(request: NextRequest) {
     // Data quality
     const dataQuality = searchParams.get('dataQuality');
     if (dataQuality) {
-      filters.dataQuality = dataQuality.split(',').map(q => q.trim()) as ('high' | 'medium' | 'low')[];
+      filters.dataQuality = dataQuality.split(',').map(q => q.trim()) as ('high' | 'medium' | 'low' | 'failed')[];
     }
     
     // Operators

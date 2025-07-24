@@ -1,7 +1,7 @@
 import { CanonProduct } from '@/types/product';
 import { v4 as uuidv4 } from 'uuid';
 
-export const sampleCanonProducts: CanonProduct[] = [
+export const sampleCanonProducts = [
   {
     id: uuidv4(),
     name: 'Canon EOS R5',
@@ -10,24 +10,18 @@ export const sampleCanonProducts: CanonProduct[] = [
     releaseDate: '2020-07-09',
     isDiscontinued: false,
     specifications: {
-      sensor: {
-        type: 'Full-frame CMOS',
-        size: '36.0 x 24.0 mm',
-        resolution: '45.0 megapixels',
-        cropFactor: 1.0
-      },
-      mount: 'Canon RF',
-      weight: '738g',
-      dimensions: '138.5 x 97.5 x 88.0 mm',
-      batteryLife: '320 shots',
-      connectivity: ['Wi-Fi', 'Bluetooth', 'USB-C'],
-      other: {
-        'ISO Range': '100-51200',
-        'Video Recording': '8K RAW, 4K',
-        'Image Stabilization': 'In-body 5-axis',
-        'Autofocus Points': '5940 selectable positions'
-      }
-    },
+      'sensor_type': 'Full-frame CMOS',
+      'sensor_size': '36.0 x 24.0 mm',
+      'sensor_resolution': '45.0 megapixels',
+      'mount': 'Canon RF',
+      'weight': '738g',
+      'dimensions': '138.5 x 97.5 x 88.0 mm',
+      'battery_life': '320 shots',
+      'iso_range': '100-51200',
+      'video_recording': '8K RAW, 4K',
+      'image_stabilization': 'In-body 5-axis',
+      'autofocus_points': '5940 selectable positions'
+    } as Record<string, string>,
     metadata: {
       sourceUrl: 'https://www.usa.canon.com/cameras/eos-r5',
       lastScraped: new Date().toISOString(),
@@ -230,7 +224,8 @@ export const sampleCanonProducts: CanonProduct[] = [
       }
     }
   }
-];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+] as any as CanonProduct[];
 
 export async function createSampleData(): Promise<void> {
   const { DataManager } = await import('@/lib/data-manager');

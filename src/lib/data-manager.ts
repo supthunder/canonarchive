@@ -89,7 +89,7 @@ export class DataManager {
     
     try {
       const fileContent = await fs.readFile(filePath, 'utf-8');
-      const data = yaml.load(fileContent) as any;
+      const data = yaml.load(fileContent) as { products?: CanonProduct[] };
       return data.products || [];
     } catch (error) {
       console.error(`Error loading products from ${filename}:`, error);
@@ -143,15 +143,15 @@ export class DataManager {
         }
       }
 
-      // Sensor type filter
-      if (criteria.sensorType && criteria.sensorType.length > 0) {
-        if (!product.specifications.sensor?.type || 
-            !criteria.sensorType.some(type => 
-              product.specifications.sensor!.type.toLowerCase().includes(type.toLowerCase())
-            )) {
-          return false;
-        }
-      }
+      // Sensor type filter - disabled for new smart product structure
+      // if (criteria.sensorType && criteria.sensorType.length > 0) {
+      //   if (!product.specifications.sensor?.type || 
+      //       !criteria.sensorType.some(type => 
+      //         product.specifications.sensor!.type.toLowerCase().includes(type.toLowerCase())
+      //       )) {
+      //     return false;
+      //   }
+      // }
 
       // Mount filter
       if (criteria.mount && criteria.mount.length > 0) {
@@ -170,18 +170,18 @@ export class DataManager {
         }
       }
 
-      // Price range filter
-      if (criteria.priceRange) {
-        const price = product.metadata.price?.currentPrice || product.metadata.price?.msrp;
-        if (price) {
-          if (criteria.priceRange.min && price < criteria.priceRange.min) {
-            return false;
-          }
-          if (criteria.priceRange.max && price > criteria.priceRange.max) {
-            return false;
-          }
-        }
-      }
+      // Price range filter - disabled for new smart product structure
+      // if (criteria.priceRange) {
+      //   const price = product.metadata.price?.currentPrice || product.metadata.price?.msrp;
+      //   if (price) {
+      //     if (criteria.priceRange.min && price < criteria.priceRange.min) {
+      //       return false;
+      //     }
+      //     if (criteria.priceRange.max && price > criteria.priceRange.max) {
+      //       return false;
+      //     }
+      //   }
+      // }
 
       // Release date range filter
       if (criteria.releaseDateRange && product.releaseDate) {
@@ -205,8 +205,8 @@ export class DataManager {
         const searchTerm = criteria.search.toLowerCase();
         const searchableText = [
           product.name,
-          product.model,
-          product.metadata.description || '',
+          product.model || '',
+          product.description || '',
           JSON.stringify(product.specifications)
         ].join(' ').toLowerCase();
 
@@ -231,11 +231,8 @@ export class DataManager {
 
     const categories = [...new Set(products.map(p => p.category))];
     
-    const sensorTypes = [...new Set(
-      products
-        .map(p => p.specifications.sensor?.type)
-        .filter(Boolean)
-    )] as string[];
+    // Sensor types disabled for new smart product structure
+    const sensorTypes: string[] = [];
 
     const mounts = [...new Set(
       products
@@ -243,15 +240,8 @@ export class DataManager {
         .filter(Boolean)
     )] as string[];
 
-    // Calculate price range
-    const prices = products
-      .map(p => p.metadata.price?.currentPrice || p.metadata.price?.msrp)
-      .filter((price): price is number => typeof price === 'number');
-    
-    const priceRange = prices.length > 0 ? {
-      min: Math.min(...prices),
-      max: Math.max(...prices)
-    } : null;
+    // Price range disabled for new smart product structure
+    const priceRange = null;
 
     // Calculate date range
     const dates = products

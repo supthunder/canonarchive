@@ -410,8 +410,8 @@ export default function AdvancedFilters({
         <div className="mt-4 pt-4 border-t">
           <div className="flex flex-wrap gap-2">
             {filters.search && (
-              <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
-                Search: "{filters.search}"
+                           <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
+               Search: &quot;{filters.search}&quot;
                 <button 
                   onClick={() => updateFilters({ search: undefined })}
                   className="ml-1 text-blue-600 hover:text-blue-800"

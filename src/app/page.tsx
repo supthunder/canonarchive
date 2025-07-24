@@ -12,6 +12,7 @@ export default function CanonArchive() {
   // Load initial data on mount
   useEffect(() => {
     handleFilterChange({});
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleFilterChange = useCallback(async (filters: AdvancedFilterCriteria) => {
@@ -45,8 +46,7 @@ export default function CanonArchive() {
     return new Intl.NumberFormat().format(num);
   };
 
-  const hasSearchTerm = searchResult?.products && 
-    Object.keys(searchResult.products.length > 0 ? {} : {}).length > 0;
+  // Remove unused variable
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -201,13 +201,13 @@ export default function CanonArchive() {
                 <h3 className="text-sm font-medium text-yellow-800">
                   💡 Pro Tips for Smart Searching
                 </h3>
-                <div className="mt-2 text-sm text-yellow-700 space-y-1">
-                  <div>• <strong>Search "12.1" or "20MP"</strong> to find cameras by exact megapixels</div>
-                  <div>• <strong>Search "ccd" or "cmos"</strong> to filter by sensor technology</div>
-                  <div>• <strong>Search "2010s" or "1990s"</strong> to explore cameras by era</div>
-                  <div>• <strong>Search "zoom" or "stabilization"</strong> to find cameras with specific features</div>
-                  <div>• <strong>Use Advanced Filters</strong> for precise megapixel ranges and sensor sizes</div>
-                </div>
+                                 <div className="mt-2 text-sm text-yellow-700 space-y-1">
+                   <div>• <strong>Search &quot;12.1&quot; or &quot;20MP&quot;</strong> to find cameras by exact megapixels</div>
+                   <div>• <strong>Search &quot;ccd&quot; or &quot;cmos&quot;</strong> to filter by sensor technology</div>
+                   <div>• <strong>Search &quot;2010s&quot; or &quot;1990s&quot;</strong> to explore cameras by era</div>
+                   <div>• <strong>Search &quot;zoom&quot; or &quot;stabilization&quot;</strong> to find cameras with specific features</div>
+                   <div>• <strong>Use Advanced Filters</strong> for precise megapixel ranges and sensor sizes</div>
+                 </div>
               </div>
             </div>
           </div>

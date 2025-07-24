@@ -155,7 +155,7 @@ export interface AdvancedFilterCriteria {
   marketedBefore?: string;
   
   // Quality filters
-  dataQuality?: ('high' | 'medium' | 'low')[];
+  dataQuality?: ('high' | 'medium' | 'low' | 'failed')[];
   
   // Advanced search operators
   operators?: {
