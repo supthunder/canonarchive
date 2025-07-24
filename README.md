@@ -1,6 +1,6 @@
-# 📷 Canon Archive - Intelligent Camera Search Engine
+# 📷 Canon Archive - Canon Camera Archive
 
-> **A sophisticated web application for exploring Canon's complete camera history with AI-powered search and filtering capabilities.**
+> **A comprehensive web application for exploring Canon's complete camera history with advanced search and filtering capabilities.**
 
 [![Next.js](https://img.shields.io/badge/Next.js-15.4.3-black)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
@@ -14,17 +14,17 @@
 
 ## ✨ **Key Features**
 
-### 🧠 **Intelligent Search Engine**
-- **Smart Text Search** - Natural language queries: "12.1", "ccd", "zoom", "2010s"
-- **Complex Operators** - Exact matches, ranges, contains, starts/ends with
+### 🔍 **Advanced Archive Search**
+- **Flexible Text Search** - Search the archive with queries: "12.1", "ccd", "zoom", "2010s"
+- **Multiple Search Operators** - Exact matches, ranges, contains, starts/ends with
 - **Multi-criteria Filtering** - Combine text search with dropdowns and checkboxes
 - **Real-time Results** - Instant filtering with live statistics
 
 ### 📊 **Advanced Filtering System**
 - **Megapixel Precision** - Exact values, ranges (e.g., 10-20MP), or multiple selections
-- **Sensor Intelligence** - CCD, CMOS, tube types with size matching (1/2.3", Full Frame, APS-C)
+- **Sensor Type Filtering** - CCD, CMOS, tube types with size matching (1/2.3", Full Frame, APS-C)
 - **Era-based Search** - Vintage, 1980s, 1990s, 2000s, 2010s, 2020s categorization
-- **Feature Detection** - Auto-detected tags: zoom, stabilization, 4K, WiFi, bluetooth
+- **Feature Filtering** - Search by features: zoom, stabilization, 4K, WiFi, bluetooth
 - **Lens Specifications** - Focal length ranges, aperture values, zoom capabilities
 
 ### 🎨 **Professional Interface**
@@ -62,8 +62,8 @@ Result: 17 cameras found instantly!
 - **Tailwind CSS** - Utility-first styling
 - **Advanced Components** - Reusable filter and grid systems
 
-### **Backend Intelligence**
-- **Smart Data Manager** - Intelligent filtering engine
+### **Backend System**
+- **Smart Data Manager** - Advanced filtering engine
 - **RESTful APIs** - `/api/smart-search` endpoint
 - **Data Processing** - Regex-based field extraction
 - **Caching System** - Optimized performance
@@ -74,9 +74,9 @@ Raw HTML → Scraper → Smart Parser → Searchable JSON → Web Interface
 ```
 
 1. **Web Scraper** - Extracts data from Canon Museum
-2. **Smart Parser** - AI-powered specification extraction
+2. **Smart Parser** - Automated specification extraction and parsing
 3. **Data Enhancement** - Standardization and categorization
-4. **Search Engine** - Multi-criteria filtering system
+4. **Archive Search** - Multi-criteria filtering system
 
 ## 🛠️ **Installation & Setup**
 
@@ -180,7 +180,7 @@ canonarchive/
 │   ├── extract-links.js        # Link extraction
 │   ├── product-scraper.js      # Individual product scraping
 │   ├── scrape-batch.js         # Batch processing
-│   ├── smart-parser.js         # AI specification extraction
+│   ├── smart-parser.js         # Automated specification extraction
 │   └── index.js               # CLI interface
 ├── data/
 │   ├── canon-products-scraped.json  # Raw scraped data
@@ -188,7 +188,7 @@ canonarchive/
 └── updatestracker.md           # Development progress log
 ```
 
-## 🎨 **Smart Data Structure**
+## 🎨 **Data Structure**
 
 ### **Enhanced Product Schema**
 ```typescript
@@ -213,7 +213,7 @@ interface CanonProduct {
     sensorType: string[];
     searchTags: string[];
     era: string;
-    // ... more intelligent fields
+    // ... more enhanced fields
   };
 }
 ```
@@ -315,7 +315,7 @@ See `updatestracker.md` for detailed development progress including:
 ❌ **Before**: Impossible to filter, data buried in descriptions  
 ✅ **Now**: Type "12.1" + select "ccd" → **17 perfect matches found!**
 
-**Canon Archive - Where camera discovery meets intelligent search!** 📷✨
+**Canon Archive - Your comprehensive Canon camera archive search tool!** 📷✨
 
 ---
 
