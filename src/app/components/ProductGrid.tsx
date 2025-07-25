@@ -45,12 +45,12 @@ export default function ProductGrid({ products, loading }: ProductGridProps) {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {[...Array(12)].map((_, i) => (
-            <div key={i} className="bg-white rounded-lg shadow-md p-4 animate-pulse">
-              <div className="bg-gray-200 aspect-square rounded-lg mb-4"></div>
+            <div key={i} className="y2k-card animate-pulse">
+              <div className="bg-gradient-to-br from-purple-900 to-blue-900 aspect-square rounded-lg mb-4"></div>
               <div className="space-y-2">
-                <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                <div className="h-3 bg-gray-200 rounded w-1/2"></div>
-                <div className="h-3 bg-gray-200 rounded w-2/3"></div>
+                <div className="h-4 bg-gradient-to-r from-cyan-500 to-pink-500 rounded w-3/4 opacity-30"></div>
+                <div className="h-3 bg-gradient-to-r from-green-500 to-purple-500 rounded w-1/2 opacity-30"></div>
+                <div className="h-3 bg-gradient-to-r from-pink-500 to-cyan-500 rounded w-2/3 opacity-30"></div>
               </div>
             </div>
           ))}
@@ -62,9 +62,9 @@ export default function ProductGrid({ products, loading }: ProductGridProps) {
   if (products.length === 0) {
     return (
       <div className="text-center py-12">
-        <div className="text-6xl mb-4">📷</div>
-        <h3 className="text-xl font-semibold text-gray-700 mb-2">No cameras found</h3>
-        <p className="text-gray-500">Try adjusting your filters to see more results</p>
+        <div className="text-6xl mb-4">🤖</div>
+        <h3 className="text-xl font-semibold glow-text mb-2">NO CAMERAS IN THE MATRIX</h3>
+        <p className="text-cyan-400">Try adjusting your filters to find more results...</p>
       </div>
     );
   }
@@ -80,7 +80,7 @@ export default function ProductGrid({ products, loading }: ProductGridProps) {
           {ebayUrl && (
             <button
               onClick={() => window.open(ebayUrl, '_blank')}
-              className="flex items-center gap-2 bg-white hover:bg-gray-50 border border-gray-200 rounded-lg px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors duration-200 shadow-sm hover:shadow-md"
+              className="y2k-button flex items-center gap-2"
               title="Search these models on eBay"
             >
               <Image
@@ -90,34 +90,34 @@ export default function ProductGrid({ products, loading }: ProductGridProps) {
                 height={20}
                 className="flex-shrink-0"
               />
-              <span>Search on eBay</span>
+              <span>EBAY SEARCH</span>
             </button>
           )}
         </div>
 
-        {/* View Toggle */}
+        {/* Y2K View Toggle */}
         <div className="flex items-center gap-2">
-          <span className="text-sm text-gray-600">View:</span>
-          <div className="bg-gray-100 rounded-lg p-1 flex">
+          <span className="text-sm glow-text">VIEW MODE:</span>
+          <div className="bg-black bg-opacity-50 border border-cyan-400 rounded-lg p-1 flex">
             <button
               onClick={() => setViewMode('normal')}
-              className={`px-3 py-1 text-sm font-medium rounded-md transition-colors duration-200 ${
+              className={`px-3 py-1 text-xs font-bold rounded-md transition-all duration-200 uppercase ${
                 viewMode === 'normal'
-                  ? 'bg-white text-gray-900 shadow-sm'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-gradient-to-r from-cyan-400 to-pink-400 text-black shadow-lg'
+                  : 'text-cyan-400 hover:text-white border border-transparent hover:border-cyan-400'
               }`}
             >
-              Normal
+              NORMAL
             </button>
             <button
               onClick={() => setViewMode('compact')}
-              className={`px-3 py-1 text-sm font-medium rounded-md transition-colors duration-200 ${
+              className={`px-3 py-1 text-xs font-bold rounded-md transition-all duration-200 uppercase ${
                 viewMode === 'compact'
-                  ? 'bg-white text-gray-900 shadow-sm'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-gradient-to-r from-cyan-400 to-pink-400 text-black shadow-lg'
+                  : 'text-cyan-400 hover:text-white border border-transparent hover:border-cyan-400'
               }`}
             >
-              Compact
+              COMPACT
             </button>
           </div>
         </div>
@@ -142,9 +142,9 @@ function ProductCard({ product, viewMode }: { product: CanonProduct; viewMode: '
   const primaryImage = product.images[0];
   
   if (viewMode === 'compact') {
-    // Compact view - minimal information, smaller card
+    // Y2K Compact view - minimal information, smaller card
     return (
-      <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
+      <div className="y2k-card overflow-hidden">
         {/* Product Image */}
         <div className="aspect-square bg-gray-100 relative">
           {primaryImage ? (
@@ -166,48 +166,48 @@ function ProductCard({ product, viewMode }: { product: CanonProduct; viewMode: '
           
           {/* Era Badge */}
           {smartSpecs.era && (
-            <div className="absolute top-1 left-1 bg-black bg-opacity-75 text-white text-xs px-1 py-0.5 rounded text-[10px]">
+            <div className="absolute top-1 left-1 retro-badge text-[10px]">
               {smartSpecs.era}
             </div>
           )}
           
           {/* Category Badge */}
-          <div className="absolute top-1 right-1 bg-blue-600 text-white text-xs px-1 py-0.5 rounded text-[10px]">
+          <div className="absolute top-1 right-1 retro-badge text-[10px]">
             {product.category}
           </div>
         </div>
         
-        {/* Compact Product Info */}
+        {/* Y2K Compact Product Info */}
         <div className="p-2">
           {/* Name */}
-          <h3 className="font-medium text-gray-900 text-sm mb-1 line-clamp-2" title={product.name}>
+          <h3 className="font-medium text-white text-sm mb-1 line-clamp-2" title={product.name}>
             {product.name}
           </h3>
           
           {/* Key specs in one line */}
-          <div className="text-xs text-gray-600 mb-2">
+          <div className="text-xs text-cyan-400 mb-2">
             {smartSpecs.megapixels.primary && `${smartSpecs.megapixels.primary}MP`}
             {smartSpecs.megapixels.primary && smartSpecs.sensorType.length > 0 && ' • '}
             {smartSpecs.sensorType.length > 0 && smartSpecs.sensorType[0].toUpperCase()}
           </div>
           
-          {/* Compact Action Button */}
+          {/* Y2K Compact Action Button */}
           <button 
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium py-1.5 px-2 rounded transition-colors duration-200"
+            className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white text-xs font-bold py-1.5 px-2 rounded border border-cyan-400 transition-all duration-200 uppercase"
             onClick={() => {
               window.open(product.productUrl, '_blank');
             }}
           >
-            Details
+            ENTER
           </button>
         </div>
       </div>
     );
   }
 
-  // Normal view - full information display
+  // Y2K Normal view - full information display
   return (
-    <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 overflow-hidden">
+    <div className="y2k-card overflow-hidden">
       {/* Product Image */}
       <div className="aspect-square bg-gray-100 relative">
         {primaryImage ? (
@@ -230,39 +230,39 @@ function ProductCard({ product, viewMode }: { product: CanonProduct; viewMode: '
         
         {/* Era Badge */}
         {smartSpecs.era && (
-          <div className="absolute top-2 left-2 bg-black bg-opacity-75 text-white text-xs px-2 py-1 rounded">
+          <div className="absolute top-2 left-2 retro-badge">
             {smartSpecs.era}
           </div>
         )}
         
         {/* Category Badge */}
-        <div className="absolute top-2 right-2 bg-blue-600 text-white text-xs px-2 py-1 rounded">
+        <div className="absolute top-2 right-2 retro-badge">
           {product.category}
         </div>
       </div>
       
-      {/* Product Info */}
+      {/* Y2K Product Info */}
       <div className="p-4">
         {/* Name */}
-        <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2" title={product.name}>
+        <h3 className="font-semibold text-white mb-2 line-clamp-2 glow-text" title={product.name}>
           {product.name}
         </h3>
         
-        {/* Key Specs */}
-        <div className="space-y-1 text-sm text-gray-600 mb-3">
+        {/* Y2K Key Specs */}
+        <div className="space-y-1 text-sm mb-3">
           {/* Megapixels */}
           {smartSpecs.megapixels.primary && (
             <div className="flex items-center">
-              <span className="text-blue-600 font-medium">📸</span>
-              <span className="ml-2">{smartSpecs.megapixels.primary}MP</span>
+              <span className="text-cyan-400 font-medium">📸</span>
+              <span className="ml-2 text-cyan-300">{smartSpecs.megapixels.primary}MP</span>
             </div>
           )}
           
           {/* Sensor */}
           {smartSpecs.sensorSize.primary && (
             <div className="flex items-center">
-              <span className="text-green-600 font-medium">📱</span>
-              <span className="ml-2 truncate" title={smartSpecs.sensorSize.primary}>
+              <span className="text-green-400 font-medium">📱</span>
+              <span className="ml-2 truncate text-green-300" title={smartSpecs.sensorSize.primary}>
                 {smartSpecs.sensorSize.primary}
               </span>
             </div>
@@ -271,42 +271,42 @@ function ProductCard({ product, viewMode }: { product: CanonProduct; viewMode: '
           {/* Sensor Type */}
           {smartSpecs.sensorType.length > 0 && (
             <div className="flex items-center">
-              <span className="text-purple-600 font-medium">🔧</span>
-              <span className="ml-2 capitalize">{smartSpecs.sensorType[0]}</span>
+              <span className="text-purple-400 font-medium">🔧</span>
+              <span className="ml-2 capitalize text-purple-300">{smartSpecs.sensorType[0]}</span>
             </div>
           )}
           
           {/* Marketing Date */}
           {product.marketedDate && (
             <div className="flex items-center">
-              <span className="text-orange-600 font-medium">📅</span>
-              <span className="ml-2">{product.marketedDate}</span>
+              <span className="text-pink-400 font-medium">📅</span>
+              <span className="ml-2 text-pink-300">{product.marketedDate}</span>
             </div>
           )}
         </div>
         
-        {/* Features Tags */}
+        {/* Y2K Features Tags */}
         {smartSpecs.searchTags.length > 0 && (
           <div className="flex flex-wrap gap-1 mb-3">
             {smartSpecs.searchTags.slice(0, 3).map((tag, index) => (
               <span
                 key={index}
-                className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full"
+                className="retro-badge text-xs"
               >
                 {tag}
               </span>
             ))}
             {smartSpecs.searchTags.length > 3 && (
-              <span className="text-gray-500 text-xs">
+              <span className="text-cyan-400 text-xs">
                 +{smartSpecs.searchTags.length - 3} more
               </span>
             )}
           </div>
         )}
         
-        {/* Lens Info */}
+        {/* Y2K Lens Info */}
         {smartSpecs.lensSpecs.focalLength.length > 0 && (
-          <div className="text-xs text-gray-500 mb-2">
+          <div className="text-xs text-yellow-400 mb-2">
             {smartSpecs.lensSpecs.focalLength.map((lens, index) => (
               <div key={index}>
                 🔭 {lens.min && lens.max 
@@ -320,22 +320,22 @@ function ProductCard({ product, viewMode }: { product: CanonProduct; viewMode: '
           </div>
         )}
         
-        {/* Video Capability */}
+        {/* Y2K Video Capability */}
         {smartSpecs.videoSpecs.maxResolution && (
-          <div className="text-xs text-gray-500 mb-2">
+          <div className="text-xs text-green-400 mb-2">
             🎬 {smartSpecs.videoSpecs.maxResolution}
           </div>
         )}
         
-        {/* Action Button */}
+        {/* Y2K Action Button */}
         <button 
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded transition-colors duration-200"
+          className="y2k-button w-full text-sm"
           onClick={() => {
             // Open product details modal or navigate to detail page
             window.open(product.productUrl, '_blank');
           }}
         >
-          View Details
+          ENTER MATRIX
         </button>
       </div>
     </div>

@@ -96,58 +96,56 @@ export default function CanonArchive() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-emerald-50">
+    <div className="min-h-screen">
       <div className="container mx-auto px-4 py-8">
-        {/* Header */}
+        {/* Y2K Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">
-            📷 <span className="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
-              Canon Archive
-            </span>
+          <h1 className="text-6xl y2k-title mb-6">
+            📷 Canon Archive
           </h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Canon Camera Archive
+          <p className="y2k-subtitle mb-8">
+            &gt;&gt;&gt; Retro Camera Database &lt;&lt;&lt;
           </p>
 
-          {/* Statistics */}
+          {/* Y2K Statistics */}
           {searchResult && (
             <div className="flex flex-wrap justify-center gap-6 mb-8">
-              <div className="bg-white rounded-lg px-6 py-3 shadow-md">
-                <div className="text-2xl font-bold text-blue-600">
+              <div className="y2k-card">
+                <div className="text-2xl font-bold glow-text">
                   {formatNumber(searchResult.products.length)}
                 </div>
-                <div className="text-sm text-gray-600">Results Found</div>
+                <div className="text-sm opacity-80">Results Found</div>
               </div>
-              <div className="bg-white rounded-lg px-6 py-3 shadow-md">
-                <div className="text-2xl font-bold text-emerald-600">
+              <div className="y2k-card">
+                <div className="text-2xl font-bold glow-text">
                   {formatNumber(searchResult.statistics.totalProducts)}
                 </div>
-                <div className="text-sm text-gray-600">Total Cameras</div>
+                <div className="text-sm opacity-80">Total Cameras</div>
               </div>
-              <div className="bg-white rounded-lg px-6 py-3 shadow-md">
-                <div className="text-2xl font-bold text-purple-600">
+              <div className="y2k-card">
+                <div className="text-2xl font-bold glow-text">
                   {searchResult.statistics.averageMegapixels ? 
                     `${searchResult.statistics.averageMegapixels.toFixed(1)}MP` : 'N/A'}
                 </div>
-                <div className="text-sm text-gray-600">Avg Megapixels</div>
+                <div className="text-sm opacity-80">Avg Megapixels</div>
               </div>
             </div>
           )}
 
-          {/* Help Section */}
-          <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-lg p-6 mb-8 max-w-4xl mx-auto">
+          {/* Y2K Help Section */}
+          <div className="y2k-container mb-8 max-w-4xl mx-auto">
             <div className="flex items-start space-x-4">
-              <div className="text-2xl">💡</div>
+              <div className="text-3xl">🔮</div>
               <div className="text-left">
-                <h3 className="text-lg font-semibold text-yellow-800 mb-2">
-                  💡 Pro Tips for Smart Searching
+                <h3 className="text-lg font-semibold glow-text mb-3">
+                  🔮 SEARCH THE MATRIX
                 </h3>
-                                 <div className="mt-2 text-sm text-yellow-700 space-y-1">
-                   <div>• <strong>Search &quot;12.1&quot; or &quot;20MP&quot;</strong> to find cameras by exact megapixels</div>
-                   <div>• <strong>Search &quot;ccd&quot; or &quot;cmos&quot;</strong> to filter by sensor technology</div>
-                   <div>• <strong>Search &quot;2010s&quot; or &quot;1990s&quot;</strong> to explore cameras by era</div>
-                   <div>• <strong>Search &quot;zoom&quot; or &quot;stabilization&quot;</strong> to find cameras with specific features</div>
-                   <div>• <strong>Use Advanced Filters</strong> for precise megapixel ranges and sensor sizes</div>
+                <div className="mt-2 text-sm space-y-2">
+                   <div>• <strong className="text-pink-400">Search &quot;12.1&quot; or &quot;20MP&quot;</strong> to find cameras by exact megapixels</div>
+                   <div>• <strong className="text-cyan-400">Search &quot;ccd&quot; or &quot;cmos&quot;</strong> to filter by sensor technology</div>
+                   <div>• <strong className="text-green-400">Search &quot;2010s&quot; or &quot;1990s&quot;</strong> to explore cameras by era</div>
+                   <div>• <strong className="text-purple-400">Search &quot;zoom&quot; or &quot;stabilization&quot;</strong> to find cameras with specific features</div>
+                   <div>• <strong className="text-yellow-400">Use Advanced Filters</strong> for precise megapixel ranges and sensor sizes</div>
                  </div>
               </div>
             </div>
