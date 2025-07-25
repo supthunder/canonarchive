@@ -2,204 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Y2K Retro Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&family=Press+Start+2P&display=swap');
-
 :root {
-  /* Y2K Color Palette */
-  --bg-primary: #000015;
-  --bg-secondary: #1a0033;
-  --accent-neon: #00ffff;
-  --accent-pink: #ff00ff;
-  --accent-green: #00ff00;
-  --accent-purple: #8a2be2;
-  --text-primary: #ffffff;
-  --text-glow: #00ffff;
-  --border-glow: #ff00ff;
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }
 
 body {
-  font-family: 'Space Mono', monospace;
-  color: var(--text-primary);
-  background: 
-    radial-gradient(ellipse at top, #1a0033 0%, #000015 50%, #000000 100%),
-    repeating-linear-gradient(
-      45deg,
+  color: rgb(var(--foreground));
+  background: linear-gradient(
+      to bottom,
       transparent,
-      transparent 2px,
-      rgba(0, 255, 255, 0.03) 2px,
-      rgba(0, 255, 255, 0.03) 4px
-    );
-  background-attachment: fixed;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-/* Y2K Animations */
-@keyframes neon-glow {
-  0%, 100% { 
-    text-shadow: 0 0 5px var(--text-glow), 0 0 10px var(--text-glow), 0 0 15px var(--text-glow);
-  }
-  50% { 
-    text-shadow: 0 0 10px var(--text-glow), 0 0 20px var(--text-glow), 0 0 30px var(--text-glow);
-  }
-}
-
-@keyframes border-glow {
-  0%, 100% { 
-    box-shadow: 0 0 5px var(--border-glow), inset 0 0 5px rgba(255, 0, 255, 0.1);
-  }
-  50% { 
-    box-shadow: 0 0 20px var(--border-glow), inset 0 0 10px rgba(255, 0, 255, 0.2);
-  }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes matrix-bg {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 100% 100%; }
-}
-
-/* Y2K Typography */
-.y2k-title {
-  font-family: 'Orbitron', monospace;
-  font-weight: 900;
-  background: linear-gradient(45deg, var(--accent-neon), var(--accent-pink), var(--accent-green));
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: neon-glow 2s ease-in-out infinite alternate;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.y2k-subtitle {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.8rem;
-  color: var(--accent-neon);
-  text-shadow: 0 0 10px var(--accent-neon);
-  animation: neon-glow 3s ease-in-out infinite alternate;
-}
-
-/* Y2K Containers */
-.y2k-container {
-  background: linear-gradient(135deg, 
-    rgba(26, 0, 51, 0.9) 0%,
-    rgba(0, 0, 21, 0.95) 50%,
-    rgba(26, 0, 51, 0.9) 100%
-  );
-  border: 2px solid var(--border-glow);
-  border-radius: 15px;
-  padding: 20px;
-  backdrop-filter: blur(10px);
-  animation: border-glow 3s ease-in-out infinite alternate;
-  position: relative;
-  overflow: hidden;
-}
-
-.y2k-container::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, var(--accent-neon), var(--accent-pink), var(--accent-green), var(--accent-purple));
-  border-radius: 15px;
-  z-index: -1;
-  animation: matrix-bg 4s linear infinite;
-}
-
-/* Y2K Buttons */
-.y2k-button {
-  font-family: 'Orbitron', monospace;
-  background: linear-gradient(45deg, var(--accent-purple), var(--accent-pink));
-  border: 2px solid var(--accent-neon);
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
-  position: relative;
-  overflow: hidden;
-}
-
-.y2k-button:hover {
-  box-shadow: 0 0 25px var(--accent-neon), inset 0 0 10px rgba(0, 255, 255, 0.2);
-  transform: translateY(-2px);
-}
-
-.y2k-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.y2k-button:hover::before {
-  left: 100%;
-}
-
-/* Y2K Grid */
-.y2k-grid {
-  display: grid;
-  gap: 20px;
-  margin: 20px 0;
-}
-
-/* Y2K Cards */
-.y2k-card {
-  background: linear-gradient(135deg, 
-    rgba(138, 43, 226, 0.1) 0%,
-    rgba(0, 0, 21, 0.8) 50%,
-    rgba(255, 0, 255, 0.1) 100%
-  );
-  border: 1px solid var(--accent-purple);
-  border-radius: 10px;
-  padding: 15px;
-  backdrop-filter: blur(5px);
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.y2k-card:hover {
-  border-color: var(--accent-neon);
-  box-shadow: 0 5px 20px rgba(0, 255, 255, 0.3);
-  transform: translateY(-5px);
-  animation: float 2s ease-in-out infinite;
-}
-
-/* Y2K Text Effects */
-.glow-text {
-  color: var(--accent-neon);
-  text-shadow: 0 0 10px var(--accent-neon);
-  animation: neon-glow 2s ease-in-out infinite alternate;
-}
-
-.retro-badge {
-  background: linear-gradient(45deg, var(--accent-pink), var(--accent-purple));
-  color: white;
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 0.7rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
-  border: 1px solid var(--accent-neon);
+      rgb(var(--background))
+    )
+    rgb(var(--background));
 }
 
 /* Utility classes for text truncation */
@@ -208,23 +30,4 @@ body {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-}
-
-/* Y2K Scrollbar */
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-primary);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, var(--accent-pink), var(--accent-neon));
-  border-radius: 6px;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  box-shadow: 0 0 20px var(--accent-neon);
 }
